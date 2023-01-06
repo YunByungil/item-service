@@ -101,6 +101,7 @@ public class BasicItemController {
     public String addItemV6(Item item, RedirectAttributes redirectAttributes) {
        itemRepository.save(item);
        redirectAttributes.addAttribute("itemId", item.getId());
+       // 치환을 다 해주고, url 인코딩도 다 해줌
        redirectAttributes.addAttribute("status", true);
        return "redirect:/basic/items/{itemId}";
     }
