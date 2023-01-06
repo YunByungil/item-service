@@ -70,10 +70,19 @@ public class BasicItemController {
 //        return "basic/item";
 //    }
 
+//    @PostMapping("/add")
+//    public String addItemV3(@ModelAttribute Item item, Model model) {
+//       itemRepository.save(item);
+//       // @ModelAttribute name을 지정하지 않으면 클래스 명의 앞에만 소문자로 바꾸고 model.addAttribute에 넣어준다.
+//
+////       model.addAttribute("item", item);
+//       return "basic/item";
+//    }
     @PostMapping("/add")
-    public String addItemV3(@ModelAttribute Item item, Model model) {
+    public String addItemV4(Item item) {
        itemRepository.save(item);
        // @ModelAttribute name을 지정하지 않으면 클래스 명의 앞에만 소문자로 바꾸고 model.addAttribute에 넣어준다.
+       // 생략 가능
 
 //       model.addAttribute("item", item);
        return "basic/item";
