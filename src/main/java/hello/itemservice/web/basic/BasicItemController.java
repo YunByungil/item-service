@@ -78,14 +78,23 @@ public class BasicItemController {
 ////       model.addAttribute("item", item);
 //       return "basic/item";
 //    }
+//    @PostMapping("/add")
+//    public String addItemV4(Item item) {
+//       itemRepository.save(item);
+//       // @ModelAttribute name을 지정하지 않으면 클래스 명의 앞에만 소문자로 바꾸고 model.addAttribute에 넣어준다.
+//       // 생략 가능
+//
+////       model.addAttribute("item", item);
+//       return "basic/item";
+//    }
     @PostMapping("/add")
-    public String addItemV4(Item item) {
+    public String addItemV5(Item item) {
        itemRepository.save(item);
        // @ModelAttribute name을 지정하지 않으면 클래스 명의 앞에만 소문자로 바꾸고 model.addAttribute에 넣어준다.
        // 생략 가능
 
 //       model.addAttribute("item", item);
-       return "basic/item";
+       return "redirect:/basic/items/" + item.getId();
     }
 
     @GetMapping("/{itemId}/edit")
