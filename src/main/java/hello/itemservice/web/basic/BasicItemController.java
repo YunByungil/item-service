@@ -58,6 +58,11 @@ public class BasicItemController {
     public String addItemV2(@ModelAttribute("item") Item item) {
         // @ModelAttribute("item")의 비밀 model.addAttribute를 안 해도
         // "item"이라는 이림으로 자동으로 addAttribute해준다.
+
+        /*
+        @ModelAttribute("hello") Item item 이름을 hello 로 지정
+        model.addAttribute("hello", item); 모델에 hello 이름으로 저장
+         */
         itemRepository.save(item);
 
 //        model.addAttribute("item", item); // 생략 가능
