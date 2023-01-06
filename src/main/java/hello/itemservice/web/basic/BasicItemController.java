@@ -54,20 +54,29 @@ public class BasicItemController {
 //        return "basic/item";
 //    }
 
+//    @PostMapping("/add")
+//    public String addItemV2(@ModelAttribute("item") Item item, Model model) {
+//        // @ModelAttribute("item")의 비밀 model.addAttribute를 안 해도
+//        // "item"이라는 이림으로 자동으로 addAttribute해준다.
+//
+//        /*
+//        @ModelAttribute("hello") Item item 이름을 hello 로 지정
+//        model.addAttribute("hello", item); 모델에 hello 이름으로 저장
+//         */
+//        itemRepository.save(item);
+//
+////        model.addAttribute("item", item); // 생략 가능
+//
+//        return "basic/item";
+//    }
+
     @PostMapping("/add")
-    public String addItemV2(@ModelAttribute("item") Item item) {
-        // @ModelAttribute("item")의 비밀 model.addAttribute를 안 해도
-        // "item"이라는 이림으로 자동으로 addAttribute해준다.
+    public String addItemV3(@ModelAttribute Item item, Model model) {
+       itemRepository.save(item);
+       // @ModelAttribute name을 지정하지 않으면 클래스 명의 앞에만 소문자로 바꾸고 model.addAttribute에 넣어준다.
 
-        /*
-        @ModelAttribute("hello") Item item 이름을 hello 로 지정
-        model.addAttribute("hello", item); 모델에 hello 이름으로 저장
-         */
-        itemRepository.save(item);
-
-//        model.addAttribute("item", item); // 생략 가능
-
-        return "basic/item";
+//       model.addAttribute("item", item);
+       return "basic/item";
     }
 
     /**
